@@ -22,4 +22,5 @@ requires:
   Class::Data::Inheritable: 0
   Task::Weaken: 0
   URI::SmartURI: 0
-version: 0.023
+  parent: 0
+version: 0.024
