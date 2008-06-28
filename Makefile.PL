@@ -9,6 +9,7 @@ requires 'Class::C3::Componentised';
 requires 'Class::Accessor::Fast';
 requires 'Class::Data::Inheritable';
 requires 'URI::SmartURI';
+requires 'Task::Weaken';
 
 build_requires 'Test::More';
 

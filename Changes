@@ -14,3 +14,6 @@ Revision history for Catalyst-Plugin-SmartURI
 
 0.022  2008-06-24 16:52:55
         Fix weird bug with initialization that sometimes happens.
+
+0.023  2008-06-28 01:14:49
+        Weaken saved context.

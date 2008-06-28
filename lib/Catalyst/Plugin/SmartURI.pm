@@ -10,11 +10,11 @@ Catalyst::Plugin::SmartURI - Configurable URIs for Catalyst
 
 =head1 VERSION
 
-Version 0.01
+Version 0.023
 
 =cut
 
-our $VERSION = '0.022';
+our $VERSION = '0.023';
 
 =head1 SYNOPSIS
 
@@ -104,6 +104,7 @@ please in your own plugins.
 
 use Class::C3;
 use Class::C3::Componentised;
+use Scalar::Util 'weaken';
 
 __PACKAGE__->mk_accessors(qw/uri_disposition uri_class/);
 
@@ -171,6 +172,7 @@ sub prepare {
 
 # Also save a copy of the context for the Request class to use.
     my $c = $context = $app->next::method(@_);
+    weaken $context;
 
     $c->uri_class($config->{uri_class});
     $c->uri_disposition($config->{disposition});
