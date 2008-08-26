@@ -21,11 +21,11 @@ Catalyst::Plugin::SmartURI - Configurable URIs for Catalyst
 
 =head1 VERSION
 
-Version 0.027
+Version 0.028
 
 =cut
 
-our $VERSION = '0.027';
+our $VERSION = '0.028';
 
 =head1 SYNOPSIS
 
@@ -138,6 +138,22 @@ Set the URI class to use for $c->uri_for and $c->req->uri_with for the duration
 of the request.
 
 =back
+
+=head1 USING WITH Catalyst::Controller::REST
+
+In MyApp.pm do something like this:
+
+    package MyApp;
+
+    use Catalyst::Runtime '5.70';
+    use parent 'Catalyst';
+
+    use Catalyst::Action::REST ();
+
+    __PACKAGE__->setup(qw/... your list of plugins including ... SmartURI .../);
+
+Because L<Catalyst::Action::REST> sets request_class at load time, SmartURI
+needs to see it at setup time to know which request class to extend.
 
 =head1 EXTENDING
 
