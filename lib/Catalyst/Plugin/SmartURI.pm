@@ -21,11 +21,11 @@ Catalyst::Plugin::SmartURI - Configurable URIs for Catalyst
 
 =head1 VERSION
 
-Version 0.028
+Version 0.029
 
 =cut
 
-our $VERSION = '0.028';
+our $VERSION = '0.029';
 
 =head1 SYNOPSIS
 
@@ -260,11 +260,12 @@ sub prepare_uri {
     if ($disposition eq 'host-header') {
       $res = $uri_class->new($uri, { reference => $c->req->uri })->absolute;
       my $host = $c->req->header('Host');
-      $host =~ s/:(\d+)$//;
+      my $port = $host =~ s/:(\d+)$// ? $1 : '';
 
-      my $port = $1;
-      $port = '' if $c->req->uri->scheme eq 'http'  && $port == 80;
-      $port = '' if $c->req->uri->scheme eq 'https' && $port == 443;
+      if ($port) {
+          $port = '' if $c->req->uri->scheme eq 'http'  && $port == 80;
+          $port = '' if $c->req->uri->scheme eq 'https' && $port == 443;
+      }
 
       $res->host($host);
       $res->port($port) if $port;

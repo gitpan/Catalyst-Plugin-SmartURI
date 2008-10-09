@@ -30,3 +30,6 @@ Revision history for Catalyst-Plugin-SmartURI
 
 0.028  2008-08-22 03:53:49
     Added note to the POD about usage with C::C::REST.
+
+0.029  2008-10-09 07:02:46
+    Fixed the host-header stuff for when there's no port.
