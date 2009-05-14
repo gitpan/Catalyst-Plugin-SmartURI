@@ -8,7 +8,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.85'
+generated_by: 'Module::Install version 0.87'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -18,11 +18,20 @@ no_index:
   directory:
     - inc
     - t
+provides:
+  Catalyst::Plugin::SmartURI:
+    file: lib/Catalyst/Plugin/SmartURI.pm
+    version: 0.034
+  Catalyst::Request::SmartURI:
+    file: lib/Catalyst/Plugin/SmartURI.pm
 requires:
   Catalyst: 5.80002
   Class::C3::Componentised: 0
+  Moose: 0
   Task::Weaken: 0
   URI::SmartURI: 0
+  namespace::clean: 0
+  parent: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.033
+version: 0.034
