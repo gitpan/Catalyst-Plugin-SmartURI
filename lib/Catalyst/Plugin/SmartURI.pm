@@ -1,8 +1,15 @@
 package Catalyst::Plugin::SmartURI;
+BEGIN {
+  $Catalyst::Plugin::SmartURI::AUTHORITY = 'cpan:RKITOVER';
+}
+{
+  $Catalyst::Plugin::SmartURI::VERSION = '0.037';
+}
 
 use Moose;
 use mro 'c3';
 
+use 5.008001;
 use Class::C3::Componentised;
 use Scalar::Util 'weaken';
 use Catalyst::Exception ();
@@ -20,15 +27,22 @@ my ($conf_disposition, $conf_uri_class); # configured values
 
 Catalyst::Plugin::SmartURI - Configurable URIs for Catalyst
 
-=head1 VERSION
-
-Version 0.036
-
-=cut
-
-our $VERSION = '0.036';
-
 =head1 SYNOPSIS
+
+In your lib/MyApp.pm, load the plugin and your other plugins, for example:
+
+    use Catalyst qw/
+        -Debug
+        ConfigLoader
+        Static::Simple
+        Session
+        Session::Store::Memcached
+        Session::State::Cookie
+        Authentication
+        Authorization::Roles
+        +CatalystX::SimpleLogin
+        SmartURI
+    /;
 
 In your .conf:
 
@@ -154,6 +168,12 @@ sub uri_for {
 
 {
     package Catalyst::Request::SmartURI;
+BEGIN {
+  $Catalyst::Request::SmartURI::AUTHORITY = 'cpan:RKITOVER';
+}
+{
+  $Catalyst::Request::SmartURI::VERSION = '0.037';
+}
     use Moose;
     extends 'Catalyst::Request';
     use namespace::clean -except => 'meta';
@@ -347,6 +367,6 @@ the same terms as Perl itself.
 
 =cut
 
-1; # End of Catalyst::Plugin::SmartURI
+__PACKAGE__; # End of Catalyst::Plugin::SmartURI
 
 # vim: expandtab shiftwidth=4 tw=80:

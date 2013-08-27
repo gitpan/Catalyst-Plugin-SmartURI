@@ -3,12 +3,24 @@ abstract: 'Configurable URIs for Catalyst'
 author:
   - 'Rafael Kitover <rkitover@cpan.org>'
 build_requires:
-  ExtUtils::MakeMaker: 6.42
+  Catalyst: 0
+  Catalyst::Action::REST: 0
+  Catalyst::Controller: 0
+  Catalyst::Test: 0
+  File::Find: 0
+  File::Temp: 0
+  FindBin: 0
+  HTTP::Request: 0
   Test::More: 0
+  URI::SmartURI: 0
+  lib: 0
+  parent: 0
+  strict: 0
+  warnings: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.42
-distribution_type: module
-generated_by: 'Module::Install version 0.91'
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300036, CPAN::Meta::Converter version 2.131560'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -16,23 +28,20 @@ meta-spec:
 name: Catalyst-Plugin-SmartURI
 no_index:
   directory:
-    - inc
     - t
-provides:
-  Catalyst::Plugin::SmartURI:
-    file: lib/Catalyst/Plugin/SmartURI.pm
-    version: 0.036
-  Catalyst::Request::SmartURI:
-    file: lib/Catalyst/Plugin/SmartURI.pm
 requires:
-  Catalyst: 5.80002
+  Catalyst::Exception: 0
+  Catalyst::Request: 0
   Class::C3::Componentised: 0
   Moose: 0
-  Task::Weaken: 0
-  URI::SmartURI: 0
+  Scalar::Util: 0
+  mro: 0
   namespace::clean: 0
-  parent: 0
+  perl: 5.008001
 resources:
+  bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Catalyst-Plugin-SmartURI
+  homepage: http://metacpan.org/release/Catalyst-Plugin-SmartURI
   license: http://dev.perl.org/licenses/
-  repository: http://dev.catalyst.perl.org/repos/Catalyst/Catalyst-Plugin-SmartURI/1.000/trunk/
-version: 0.036
+  repository: git://github.com/rkitover/catalyst-plugin-smarturi.git
+version: 0.037
+x_authority: cpan:RKITOVER
