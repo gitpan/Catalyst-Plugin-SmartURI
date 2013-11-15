@@ -3,7 +3,7 @@ BEGIN {
   $Catalyst::Plugin::SmartURI::AUTHORITY = 'cpan:RKITOVER';
 }
 {
-  $Catalyst::Plugin::SmartURI::VERSION = '0.037';
+  $Catalyst::Plugin::SmartURI::VERSION = '0.038';
 }
 
 use Moose;
@@ -172,7 +172,7 @@ BEGIN {
   $Catalyst::Request::SmartURI::AUTHORITY = 'cpan:RKITOVER';
 }
 {
-  $Catalyst::Request::SmartURI::VERSION = '0.037';
+  $Catalyst::Request::SmartURI::VERSION = '0.038';
 }
     use Moose;
     extends 'Catalyst::Request';
@@ -201,7 +201,11 @@ BEGIN {
         my $req = shift;
 
         my $uri_class = $context ? $context->uri_class : $conf_uri_class;
-        my $referer   = $req->next::method(@_) || '';
+
+        my $referer   = $req->next::method(@_);
+
+        return $referer if not defined $referer;
+
         my $base      = $req->base;
         my $uri       = $req->uri;
 

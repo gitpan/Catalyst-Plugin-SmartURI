@@ -7,10 +7,11 @@ build_requires:
   Catalyst::Action::REST: 0
   Catalyst::Controller: 0
   Catalyst::Test: 0
-  File::Find: 0
-  File::Temp: 0
+  File::Spec: 0
   FindBin: 0
   HTTP::Request: 0
+  IO::Handle: 0
+  IPC::Open3: 0
   Test::More: 0
   URI::SmartURI: 0
   lib: 0
@@ -20,7 +21,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300036, CPAN::Meta::Converter version 2.131560'
+generated_by: 'Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.132830'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -43,5 +44,5 @@ resources:
   homepage: http://metacpan.org/release/Catalyst-Plugin-SmartURI
   license: http://dev.perl.org/licenses/
   repository: git://github.com/rkitover/catalyst-plugin-smarturi.git
-version: 0.037
+version: 0.038
 x_authority: cpan:RKITOVER
